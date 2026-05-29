@@ -20,22 +20,24 @@
     '.arrowsgo-lives{display:inline-flex;gap:2px;font-size:17px;line-height:1}',
     '.arrowsgo-lives span{transition:transform .25s var(--spring),opacity .25s}',
     '.arrowsgo-lives span.gone{opacity:.22;transform:scale(.7)}',
-    '.arrowsgo-board-wrap{flex:1 1 auto;position:relative;display:flex;align-items:safe center;justify-content:safe center;min-height:0;overflow:auto;border-radius:var(--r-card);background:linear-gradient(160deg,#fff,var(--surface-2));box-shadow:inset 0 2px 10px rgba(60,80,140,.08)}',
-    '.arrowsgo-grid{display:grid;gap:var(--ag-gap,5px);padding:8px;margin:auto;touch-action:manipulation}',
-    '.arrowsgo-cell{position:relative;border-radius:14px;border:none;padding:0;display:flex;align-items:center;justify-content:center;font-weight:900;line-height:1;cursor:pointer;background:transparent;-webkit-tap-highlight-color:transparent;overflow:hidden;min-width:0;min-height:0;font-family:inherit}',
-    '.arrowsgo-cell.empty{background:rgba(120,140,180,.07);box-shadow:inset 0 0 0 2px rgba(120,140,180,.06);cursor:default}',
-    '.arrowsgo-cell.arrow{background:var(--ag-cell,#fff);box-shadow:var(--shadow-sm),inset 0 -3px 0 rgba(60,80,140,.10),inset 0 2px 0 rgba(255,255,255,.7);transition:transform .12s var(--spring),box-shadow .15s;color:var(--ag-fg,#3155d4)}',
-    '.arrowsgo-cell.arrow:active{transform:scale(.9)}',
-    '@media(hover:hover){.arrowsgo-cell.arrow:hover{transform:translateY(-2px) scale(1.04)}}',
-    '.arrowsgo-cell.clawd-body{--ag-cell:#e8814e;--ag-fg:#5a2a08;box-shadow:var(--shadow-sm),inset 0 -3px 0 rgba(120,55,10,.22),inset 0 2px 0 rgba(255,255,255,.35)}',
-    '.arrowsgo-cell.clawd-eye{--ag-cell:#23262f;--ag-fg:#eef0f6;box-shadow:var(--shadow-sm),inset 0 -3px 0 rgba(0,0,0,.4),inset 0 2px 0 rgba(255,255,255,.08)}',
-    '.arrowsgo-glyph{display:block;transition:transform .34s var(--spring),opacity .3s;will-change:transform,opacity}',
+    '.arrowsgo-board-wrap{flex:1 1 auto;position:relative;display:flex;align-items:safe center;justify-content:safe center;min-height:0;overflow:auto;border-radius:var(--r-card);background:linear-gradient(160deg,#eef2fa,#e3e9f5);box-shadow:inset 0 2px 10px rgba(60,80,140,.10)}',
+    /* tiles packed flush (gap 0) so the filled cells form a continuous silhouette */
+    '.arrowsgo-grid{display:grid;gap:0;padding:0;margin:auto;touch-action:manipulation;filter:drop-shadow(0 4px 10px rgba(40,54,92,.18))}',
+    '.arrowsgo-cell{position:relative;border:none;padding:0;display:flex;align-items:center;justify-content:center;line-height:1;cursor:pointer;background:transparent;-webkit-tap-highlight-color:transparent;overflow:hidden;min-width:0;min-height:0}',
+    '.arrowsgo-cell.empty{background:transparent;cursor:default}',                       /* holes: board shows through */
+    '.arrowsgo-cell.arrow{background:var(--ag-cell,#3d7bff);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .1s var(--spring),filter .15s;color:var(--ag-fg,#fff)}',
+    '.arrowsgo-cell.arrow:active{transform:scale(.88);z-index:2}',
+    '@media(hover:hover){.arrowsgo-cell.arrow:hover{filter:brightness(1.08)}}',
+    '.arrowsgo-cell.clawd-body{--ag-cell:#e8814e;--ag-fg:#5a2a08;box-shadow:inset 0 0 0 1px rgba(120,55,10,.20)}',
+    '.arrowsgo-cell.clawd-eye{--ag-cell:#22262f;--ag-fg:#eef0f6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}',
+    '.arrowsgo-glyph{display:flex;align-items:center;justify-content:center;width:62%;height:62%;transition:opacity .3s;will-change:opacity}',
+    '.arrowsgo-svg{width:100%;height:100%;display:block;overflow:visible}',
     '.arrowsgo-cell.pulling{pointer-events:none}',
     '.arrowsgo-cell.pulling .arrowsgo-glyph{opacity:0}',
-    '.arrowsgo-cell.miss{animation:arrowsgo-shake .42s}',
-    '.arrowsgo-cell.hintpulse{animation:arrowsgo-hint .9s var(--spring) 2}',
+    '.arrowsgo-cell.miss{animation:arrowsgo-shake .42s;z-index:3}',
+    '.arrowsgo-cell.hintpulse{animation:arrowsgo-hint .9s var(--spring) 2;z-index:3}',
     '@keyframes arrowsgo-shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-6px) rotate(-3deg)}30%{transform:translateX(6px) rotate(3deg)}45%{transform:translateX(-5px)}60%{transform:translateX(5px)}75%{transform:translateX(-3px)}}',
-    '@keyframes arrowsgo-hint{0%,100%{box-shadow:var(--shadow-sm),inset 0 0 0 0 var(--lime)}50%{box-shadow:0 0 0 4px var(--lime),0 6px 16px rgba(80,200,90,.5)}}',
+    '@keyframes arrowsgo-hint{0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}50%{box-shadow:0 0 0 3px var(--lime),0 6px 16px rgba(80,200,90,.55)}}',
     '.arrowsgo-controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}',
     '.arrowsgo-controls .btn{min-height:44px;padding:0 16px;font-size:14px}',
     '.arrowsgo-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px;background:rgba(255,255,255,.86);backdrop-filter:blur(4px);border-radius:var(--r-card);z-index:5;animation:arrowsgo-pop .34s var(--spring)}',
@@ -44,16 +46,26 @@
     '.arrowsgo-overlay .em{font-size:46px;line-height:1}',
     '.arrowsgo-overlay p{margin:0;color:var(--muted);font-weight:700;font-size:14px;max-width:260px}',
     '.arrowsgo-overlay .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}',
-    '.arrowsgo-fly{position:absolute;pointer-events:none;z-index:4;font-weight:900;color:var(--ag-fg,#3155d4);display:flex;align-items:center;justify-content:center;will-change:transform,opacity}'
+    '.arrowsgo-fly{position:absolute;pointer-events:none;z-index:4;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);will-change:transform,opacity}'
   ].join('');
 
   var DIRS = {
-    U: { dc: 0, dr: -1, glyph: '▲', tx: 0, ty: -1, color: 'var(--blue)' },
-    D: { dc: 0, dr: 1, glyph: '▼', tx: 0, ty: 1, color: 'var(--purple)' },
-    L: { dc: -1, dr: 0, glyph: '◀', tx: -1, ty: 0, color: 'var(--teal)' },
-    R: { dc: 1, dr: 0, glyph: '▶', tx: 1, ty: 0, color: 'var(--pink)' }
+    U: { dc: 0, dr: -1, rot: 0,   tx: 0, ty: -1, color: 'var(--blue)' },
+    D: { dc: 0, dr: 1,  rot: 180, tx: 0, ty: 1,  color: 'var(--purple)' },
+    L: { dc: -1, dr: 0, rot: 270, tx: -1, ty: 0, color: 'var(--teal)' },
+    R: { dc: 1, dr: 0,  rot: 90,  tx: 1, ty: 0,  color: 'var(--pink)' }
   };
   var DIR_KEYS = ['U', 'D', 'L', 'R'];
+
+  // A "real" arrow — straight shaft + chevron arrowhead (NOT a play-button triangle).
+  // Drawn as inline SVG so it stays crisp at any tile size and inherits currentColor;
+  // the head is baked into the path and the whole glyph is rotated per direction.
+  var ARROW_PATH = 'M12 20.5 L12 6.5 M6 11 L12 4.8 L18 11';
+  function arrowSVG(dir) {
+    return '<svg class="arrowsgo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<g transform="rotate(' + DIRS[dir].rot + ' 12 12)"><path d="' + ARROW_PATH + '"/></g></svg>';
+  }
 
   /* ---------------- pure board helpers ---------------- */
   // Return list of [c,r] cells in the ray from (c,r) toward the edge in dir
@@ -352,7 +364,7 @@
       var maxH = boardWrap.clientHeight - 16;
       if (maxW <= 0) maxW = 300;
       if (maxH <= 0) maxH = 300;
-      var gap = 5;
+      var gap = 0; // tiles packed flush
       var byW = (maxW - gap * (state.cols - 1)) / state.cols;
       var byH = (maxH - gap * (state.rows - 1)) / state.rows;
       var s = Math.floor(Math.min(byW, byH));
@@ -362,17 +374,8 @@
 
     function layoutGrid() {
       var s = cellSizePx();
-      var gap = 5;
-      grid.style.setProperty('--ag-gap', gap + 'px');
       grid.style.gridTemplateColumns = 'repeat(' + state.cols + ',' + s + 'px)';
       grid.style.gridTemplateRows = 'repeat(' + state.rows + ',' + s + 'px)';
-      var fs = Math.round(s * 0.5);
-      for (var r = 0; r < state.rows; r++) {
-        for (var c = 0; c < state.cols; c++) {
-          var elc = cellEls[r] && cellEls[r][c];
-          if (elc) elc.style.fontSize = fs + 'px';
-        }
-      }
     }
 
     function buildGrid() {
@@ -384,10 +387,12 @@
           var cell = state.board[r][c];
           var btn;
           if (cell) {
-            var glyph = ctx.el('span', { class: 'arrowsgo-glyph' }, DIRS[cell.dir].glyph);
+            var glyph = ctx.el('span', { class: 'arrowsgo-glyph', html: arrowSVG(cell.dir) });
             var isEye = state.clawd && state.eyeSet && state.eyeSet[c + ',' + r];
             var extraClass = state.clawd ? (isEye ? ' clawd-eye' : ' clawd-body') : '';
-            var cellStyle = state.clawd ? null : { '--ag-fg': DIRS[cell.dir].color };
+            // non-Clawd: fill the tile with its direction colour (white arrow) so the
+            // packed tiles read as a solid coloured silhouette. Clawd: classes set the fill.
+            var cellStyle = state.clawd ? null : { '--ag-cell': DIRS[cell.dir].color, '--ag-fg': '#ffffff' };
             btn = ctx.el('button', {
               class: 'arrowsgo-cell arrow' + extraClass,
               type: 'button',
@@ -477,8 +482,11 @@
       state.board[r][c] = null;
 
       btn.classList.add('pulling');
-      // spawn a flying glyph clone that travels off-board
-      var flyer = makeFlyer(btn, dir, size);
+      // spawn a flying tile clone (matching this cell's colours) that slides off-board
+      var fIsEye = state.clawd && state.eyeSet && state.eyeSet[c + ',' + r];
+      var fFill = state.clawd ? (fIsEye ? '#22262f' : '#e8814e') : DIRS[dir].color;
+      var fFg = state.clawd ? (fIsEye ? '#eef0f6' : '#5a2a08') : '#ffffff';
+      var flyer = makeFlyer(btn, dir, size, fFill, fFg);
       if (flyer) {
         var dist = travel;
         later(function () {
@@ -501,19 +509,17 @@
       }, 300);
     }
 
-    function makeFlyer(btn, dir, size) {
+    function makeFlyer(btn, dir, size, fillCol, fgCol) {
       var rect = btn.getBoundingClientRect();
       var wrapRect = boardWrap.getBoundingClientRect();
-      var flyer = ctx.el('div', { class: 'arrowsgo-fly' }, DIRS[dir].glyph);
+      var flyer = ctx.el('div', { class: 'arrowsgo-fly', html: '<span class="arrowsgo-glyph">' + arrowSVG(dir) + '</span>' });
       flyer.style.left = (rect.left - wrapRect.left + boardWrap.scrollLeft) + 'px';
       flyer.style.top = (rect.top - wrapRect.top + boardWrap.scrollTop) + 'px';
       flyer.style.width = size + 'px';
       flyer.style.height = size + 'px';
-      flyer.style.fontSize = Math.round(size * 0.5) + 'px';
-      // The flyer lives on boardWrap, not the cell, so the cell's inline
-      // --ag-fg doesn't cascade to it; set the per-direction color explicitly
-      // so the flying glyph matches the arrow it came from.
-      flyer.style.color = state.clawd ? '#d9784a' : DIRS[dir].color;
+      // mirror the tile it came from (background) + its arrow colour (currentColor for the SVG)
+      flyer.style.background = fillCol;
+      flyer.style.color = fgCol;
       flyer.style.transition = 'transform .34s var(--spring),opacity .3s ease-out';
       boardWrap.appendChild(flyer);
       return flyer;
