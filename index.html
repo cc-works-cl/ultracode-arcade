@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <meta name="theme-color" content="#eef1f7" />
+  <meta name="description" content="ULTRA ARCADE — ゲーム・便利ツール・音楽スタジオを1ページに集めた遊び心あふれる静的Webアプリ。" />
+  <title>ULTRA ARCADE</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%233d7bff'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white'%3E%E2%97%86%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- ===== core runtime (MUST load first) ===== -->
+  <script src="js/core.js"></script>
+
+  <!-- ===== games ===== -->
+  <script src="js/games/breakout.js"></script>
+  <script src="js/games/snake.js"></script>
+  <script src="js/games/arrowsgo.js"></script>
+  <script src="js/games/sokoban.js"></script>
+  <script src="js/games/thread.js"></script>
+
+  <!-- ===== tools ===== -->
+  <script src="js/tools/json.js"></script>
+  <script src="js/tools/counter.js"></script>
+  <script src="js/tools/color.js"></script>
+  <script src="js/tools/markdown.js"></script>
+  <script src="js/tools/password.js"></script>
+
+  <!-- ===== studio ===== -->
+  <script src="js/studio/studio.js"></script>
+</body>
+</html>
